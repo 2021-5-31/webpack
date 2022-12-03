@@ -1,1 +1,2 @@
-console.log('ds')
+const result = require('@/a')
+console.log(result())

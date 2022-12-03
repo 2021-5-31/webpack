@@ -7,7 +7,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash:6].bundle.js'
+    filename: '[name].[hash:6].bundle.js',
+    // library: 'MyLibrary' //输出打包结果，变量名为MyLibrary
   },
   // module: {
   //   rules: [
@@ -31,5 +32,16 @@ module.exports = {
   //     // {}规则2
   //   ]
   // },
-  plugins: [new FilenameList('文件名列表.txt')]
+  plugins: [new FilenameList('文件名列表.txt')],
+  // resolve:{
+  //   modules: ['node_modules'], //node_modules查找位置
+  //   extensions: ['.js', '.css', '...'], //按照顺序查找文件后缀名
+  //   alias: {
+  //     '@': path.resolve(__dirname, 'src')
+  //   }
+  // },
+  // externals: {
+  //   jquery: '$',
+  //   vuex: 'Vuex'
+  // } //不打包依赖，使用cdn引入
 }
