@@ -1,5 +1,8 @@
 const path = require('path')
 const FilenameList = require('./plugins/filenameList')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require("copy-webpack-plugin")
 
 module.exports = {
   entry: {
@@ -32,7 +35,18 @@ module.exports = {
   //     // {}规则2
   //   ]
   // },
-  plugins: [new FilenameList('文件名列表.txt')],
+  plugins: [
+    // new FilenameList('文件名列表.txt'),
+    new CleanWebpackPlugin(), //清除dist文件
+    new HtmlWebpackPlugin({
+      template: './public/index.html'
+    }), //自动生成./dist/index.html
+    new CopyPlugin({
+      patterns: [
+        { from: "./public", to: "./" }
+      ]
+    }), //复制静态资源
+  ],
   // resolve:{
   //   modules: ['node_modules'], //node_modules查找位置
   //   extensions: ['.js', '.css', '...'], //按照顺序查找文件后缀名

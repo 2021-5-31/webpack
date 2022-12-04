@@ -1,2 +1,1 @@
-const result = require('@/a')
-console.log(result())
+console.log('123444')
