@@ -10,10 +10,12 @@
     "html-webpack-plugin": "^4.5.2",
     "loader-utils": "^2.0.0",
     "webpack": "^4.41.4",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   },
   "scripts": {
-    "dev": "webpack --env=development",
+    "dev": "webpack-dev-server --env=development",
+    "dev2": "webpack --env=development",
     "build": "webpack --env=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -58,4 +58,7 @@ module.exports = {
   //   jquery: '$',
   //   vuex: 'Vuex'
   // } //不打包依赖，使用cdn引入
+  stats: {
+    modules: false
+  }
 }
