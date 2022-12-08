@@ -1,4 +1,1 @@
-import imgSrc from '../public/img/chicken.jpg'
-const img = document.createElement('img')
-img.src = imgSrc
-document.body.appendChild(img)
+import css from './css/test.scss'

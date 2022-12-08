@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash:6].bundle.js',
+    publicPath: '/'
     // library: 'MyLibrary' //输出打包结果，变量名为MyLibrary
   },
   module: {
@@ -46,6 +47,10 @@ module.exports = {
           //   loader: 'url-loader', // 将图片转成base64
           // }
         ]
+      },
+      {
+        test:/\.scss$/,
+        use: ['style-loader', "css-loader", 'sass-loader']
       }
     ]
   },
@@ -53,7 +58,8 @@ module.exports = {
     // new FilenameList('文件名列表.txt'),
     new CleanWebpackPlugin(), //清除dist文件
     new HtmlWebpackPlugin({
-      template: './public/index.html'
+      template: './public/index.html',
+      filename: 'html/index.html'
     }), //自动生成./dist/index.html
     // new CopyPlugin({
     //   patterns: [
@@ -72,7 +78,7 @@ module.exports = {
   //   jquery: '$',
   //   vuex: 'Vuex'
   // } //不打包依赖，使用cdn引入
-  stats: {
+  stats: { //webpack编译时，控制台的显示信息
     modules: false
   }
 }

@@ -9,6 +9,7 @@ module.exports = {
       }
     },
     open: true,
-    // port: 8000
+    // port: 8000,
+    openPage: 'html/index.html'
   }
 }
