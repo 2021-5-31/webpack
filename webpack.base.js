@@ -15,6 +15,7 @@ module.exports = {
     // library: 'MyLibrary' //输出打包结果，变量名为MyLibrary
   },
   module: {
+    // noParse: /jquery/, // 不解析已经完成打包的模块或者文件内没有import,require的导入模块，提高构建速度
     rules: [
       // {
       //   test: /main\.js$/,
@@ -54,6 +55,9 @@ module.exports = {
       },
       {
         test:/\.js$/,
+        // exclude: /jquery/, //像jquery这种库已经做了代码转换，就不需要再进行babel处理
+        // include: /src/, //表示src目录下的文件都要babel处理
+        // use: ['cache-loader', 'babel-loader'], //cache-loader 可以缓存loader结果，提高构建速度
         use: ['babel-loader']
       }
     ]

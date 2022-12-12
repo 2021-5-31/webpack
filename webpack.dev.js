@@ -10,6 +10,7 @@ module.exports = {
     },
     open: true,
     // port: 8000,
-    openPage: 'html/index.html'
+    openPage: 'html/index.html',
+    // hot: true //HMR 开启热替换
   }
 }
