@@ -3,6 +3,8 @@ const FilenameList = require('./plugins/filenameList')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require("copy-webpack-plugin")
+const TerserPlugin = require('terser-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -88,5 +90,12 @@ module.exports = {
   // } //不打包依赖，使用cdn引入
   stats: { //webpack编译时，控制台的显示信息
     modules: false
-  }
+  },
+  optimization: {
+    minimize: true, // 是否要启用压缩，默认情况下，生产环境会自动开启
+    minimizer: [ 
+      new TerserPlugin(), //js压缩
+      // new OptimizeCSSAssetsPlugin() //css压缩
+    ],
+  },
 }
